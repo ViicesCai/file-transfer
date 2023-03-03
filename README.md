@@ -16,3 +16,29 @@
 ## 说明
 + 传输服务默认端口：30088
 + 传输服务默认数据通道端口：5000 - 5555
++ `java -jar transfer-server-xxx.jar 启动传输服务`
+
+## 使用示例
+```java
+    public static void main(String[] args) {
+
+        FileTransferClient client = null;
+
+        try {
+            client = new FileTransferClient("127.0.0.1");
+
+            Boolean isSuccess = client.sendFile(new File("C:\\Users\\Viices Cai\\Downloads\\你不知道的JavaScript（上中下合集） (作者 [美] Kyle Simpson 译者 赵望野 梁杰 单业 姜南) (Z-Library).pdf"), "kali");
+
+            if (isSuccess) {
+                System.out.println("传输成功！");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (client != null) {
+                client.close();
+            }
+        }
+    }
+```
