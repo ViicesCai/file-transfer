@@ -12,6 +12,7 @@
         <module>transfer-client</module>
         <module>transfer-server</module>
         <module>transfer-common</module>
+        <module>transfer-plugin</module>
     </modules>
 
     <properties>
@@ -21,7 +22,8 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <revision>1.0.0</revision>
+        <!-- 版本号定义 -->
+        <revision>1.1.0</revision>
     </properties>
 
     <dependencies>

@@ -4,28 +4,39 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>file-transfer</artifactId>
         <groupId>life.pisay</groupId>
+        <artifactId>transfer-plugin</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>transfer-server</artifactId>
-    <description>A file transfer server.</description>
+    <artifactId>file-listener</artifactId>
+    <description>Listening to file directories for automatic transfer.</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-
-        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <commons-io.version>2.7</commons-io.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>life.pisay</groupId>
             <artifactId>transfer-common</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>life.pisay</groupId>
+            <artifactId>transfer-client</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -76,7 +87,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>life.pisay.transfer.server.ServerMain</mainClass>
+                            <mainClass>life.pisay.transfer.plugin.file.listener.ListenerMain</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -96,4 +107,5 @@
 
         </plugins>
     </build>
+
 </project>
